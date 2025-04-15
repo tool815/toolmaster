@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Tools - Image & PDF Utilities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e0e7ff;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(67, 97, 238, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .tool-categories {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            background: white;
+            padding: 4rem 0;
+            margin: 3rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-tools"></i> ImageCompressor
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="Image-compressor.html" target="_blank">Home</a></li>
+                    <li><a href="Image-compressor.html" target="_blank">Image Tools</a></li>
+                    <li><a href="Image-compressor.html" target="_blank">PDF Tools</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Free Online Tools for Images & PDFs</h1>
+                <p>Optimize, convert and enhance your files with our easy-to-use tools. No registration required - start using right away!</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-image"></i> Image Tools
+                    </a>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-outline">
+                        <i class="fas fa-file-pdf"></i> PDF Tools
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container" id="image-tools">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Image Compression Tools</h2>
+            
+            <div class="tool-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Compressors</button>
+                <button class="category-btn">Converters</button>
+                <button class="category-btn">Editors</button>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress-alt"></i>
+                    </div>
+                    <h3>Image Compressor</h3>
+                    <p>Reduce image file size without losing quality. Supports JPG, PNG, WebP.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Image Converter</h3>
+                    <p>Convert between JPG, PNG, GIF, WebP and other image formats.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-crop-alt"></i>
+                    </div>
+                    <h3>Image Resizer</h3>
+                    <p>Resize and crop images to exact dimensions while maintaining quality.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Background Remover</h3>
+                    <p>Automatically remove backgrounds from images with AI technology.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-image"></i>
+                    </div>
+                    <h3>Bulk Compressor</h3>
+                    <p>Compress multiple images at once with batch processing.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-adjust"></i>
+                    </div>
+                    <h3>Image Enhancer</h3>
+                    <p>Improve image quality, adjust brightness, contrast and colors.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container" id="pdf-tools">
+            <h2 style="text-align: center; margin-bottom: 2rem;">PDF Tools</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>PDF Compressor</h3>
+                    <p>Reduce PDF file size while preserving quality. Perfect for email attachments.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3>PDF to Word</h3>
+                    <p>Convert PDF files to editable Word documents with perfect formatting.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3>PDF to Excel</h3>
+                    <p>Extract tables from PDFs into editable Excel spreadsheets.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>PDF Protector</h3>
+                    <p>Add passwords and permissions to your PDF files to keep them secure.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-merge"></i>
+                    </div>
+                    <h3>PDF Merger</h3>
+                    <p>Combine multiple PDF files into one document in just seconds.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>PDF Splitter</h3>
+                    <p>Split PDF documents into separate pages or extract specific pages.</p>
+                    <a href="Image-compressor.html" target="_blank" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        Use Tool <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features" id="features">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Why Choose Our Tools?</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Secure Processing</h3>
+                        <p>All files are processed in your browser. We never upload your documents to our servers.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Our tools use advanced algorithms to process your files in seconds, no waiting time.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>No Registration</h3>
+                        <p>Use all tools immediately without creating an account or providing personal information.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Works Everywhere</h3>
+                        <p>Access our tools from any device - computer, tablet or smartphone.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Premium Quality</h3>
+                        <p>Get professional results without quality loss. Perfect for designers and developers.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Completely Free</h3>
+                        <p>All our tools are 100% free with no hidden costs or limitations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>ToolMaster</h3>
+                    <p style="margin: 1rem 0; color: #94a3b8;">Free online tools for images and PDFs. Fast, secure, and easy to use.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: white;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Image Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="Image-compressor.html" target="_blank">Image Compressor</a></li>
+                        <li><a href="Image-compressor.html" target="_blank">Image Converter</a></li>
+                        <li><a href="Image-compressor.html" target="_blank">Image Resizer</a></li>
+                        <li><a href="Image-compressor.html" target="_blank">Background Remover</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>PDF Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="Image-compressor.html" target="_blank">PDF Compressor</a></li>
+                        <li><a href="Image-compressor.html" target="_blank">PDF to Word</a></li>
+                        <li><a href="Image-compressor.html" target="_blank">PDF Merger</a></li>
+                        <li><a href="Image-compressor.html" target="_blank">PDF Protector</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 ToolMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Category filter buttons
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // In a real implementation, you would filter tools here
+            });
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
