@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>AI Image Generator - Create Images from Text Free</title>
+    <meta name="description" content="Generate stunning images from text prompts for free with our powerful AI Image Generator. Turn your imagination into art instantly. Fast, easy, and no registration required.">
+    <meta name="keywords" content="ai image generator, text to image, create image from text, free ai art generator, ai image creator, text to art">
+    <meta name="author" content="Your Brand Name">
+    <meta property="og:title" content="AI Image Generator - Create Images from Text Free">
+    <meta property="og:description" content="Turn your words into stunning visuals with our free AI-powered Text to Image generator. Create unique art, photos, and illustrations in seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://placehold.co/1200x630/8e44ad/ffffff?text=AI+Image+Generator">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .ad-placeholder {
+            background-color: #f0f0f0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+        }
+        .ad-placeholder-top {
+            width: 100%;
+            height: 90px;
+            margin: 1rem 0;
+        }
+        .ad-placeholder-side {
+            width: 160px;
+            height: 600px;
+        }
+        .loader-container {
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #8e44ad;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .prompt-input:focus {
+            border-color: #8e44ad;
+            box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.2);
+        }
+        .generate-btn {
+            background: linear-gradient(45deg, #8e44ad, #9b59b6);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(142, 68, 173, 0.2);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-purple-700">ImagiGen.AI</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#generator" class="text-gray-600 hover:text-purple-700 transition">Generator</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-purple-700 transition">How It Works</a>
+                <a href="#features" class="text-gray-600 hover:text-purple-700 transition">Features</a>
+            </nav>
+            <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4">
+            <a href="#generator" class="block py-2 text-gray-600 hover:text-purple-700">Generator</a>
+            <a href="#how-it-works" class="block py-2 text-gray-600 hover:text-purple-700">How It Works</a>
+            <a href="#features" class="block py-2 text-gray-600 hover:text-purple-700">Features</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Top Ad Placeholder -->
+        <div class="ad-placeholder ad-placeholder-top">
+            <!-- 
+                Google AdSense Code - Top Banner Ad (e.g., 728x90)
+                Replace the content below with your AdSense ad unit code.
+            -->
+            <p>Top Ad (728x90)<br>Your AdSense code here.</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Content -->
+            <div class="w-full lg:w-3/4">
+                <!-- Generator Section -->
+                <section id="generator" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">Turn Your Words into Art</h2>
+                        <p class="text-gray-600 text-lg">Describe anything you can imagine, and our AI will generate a unique image for you.</p>
+                    </div>
+
+                    <!-- Prompt Input Area -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                        <input type="text" id="prompt-input" placeholder="e.g., An astronaut riding a horse on Mars, cinematic lighting" class="prompt-input w-full p-4 border border-gray-300 rounded-lg focus:outline-none transition">
+                        <button id="generate-button" class="generate-btn text-white font-bold py-4 px-8 rounded-lg whitespace-nowrap">
+                            Generate
+                        </button>
+                    </div>
+
+                    <!-- Image Display Area -->
+                    <div id="image-container" class="w-full aspect-square bg-gray-100 rounded-lg flex items-center justify-center relative overflow-hidden">
+                        <!-- Loader -->
+                        <div id="loader" class="hidden absolute inset-0 z-10 loader-container flex-col items-center justify-center">
+                            <div class="loader"></div>
+                            <p class="mt-4 text-lg font-semibold text-gray-700">Generating your masterpiece...</p>
+                        </div>
+                        
+                        <!-- Result Image -->
+                        <img id="result-image" src="https://placehold.co/512x512/e9d5ff/9333ea?text=Your+Image+Will+Appear+Here" alt="AI generated image" class="w-full h-full object-contain rounded-lg">
+                        
+                        <!-- Error Message -->
+                        <div id="error-message" class="hidden p-4 text-center text-red-700"></div>
+                    </div>
+                </section>
+
+                <!-- How It Works Section -->
+                <section id="how-it-works" class="mt-16">
+                    <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">1. Write a Prompt</h3>
+                            <p class="text-gray-600">Describe the image you want to create in the text box above.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">2. Click Generate</h3>
+                            <p class="text-gray-600">Our AI analyzes your text and starts creating your image.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">3. Download</h3>
+                            <p class="text-gray-600">Your unique image appears, ready for you to save and share.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Side Ad Placeholder -->
+            <aside class="hidden lg:block w-1/4">
+                <div class="sticky top-24">
+                    <div class="ad-placeholder ad-placeholder-side">
+                        <!-- 
+                            Google AdSense Code - Skyscraper Ad (e.g., 160x600)
+                            Replace the content below with your AdSense ad unit code.
+                        -->
+                        <p>Side Ad (160x600)<br>Your AdSense code here.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 border-t">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-600">
+            <p>&copy; 2025 ImagiGen.AI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const generateButton = document.getElementById('generate-button');
+        const promptInput = document.getElementById('prompt-input');
+        const imageContainer = document.getElementById('image-container');
+        const loader = document.getElementById('loader');
+        const resultImage = document.getElementById('result-image');
+        const errorMessage = document.getElementById('error-message');
+        const placeholderImage = 'https://placehold.co/512x512/e9d5ff/9333ea?text=Your+Image+Will+Appear+Here';
+
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Function to show/hide UI elements
+        const showLoader = (isLoading) => {
+            if (isLoading) {
+                loader.classList.remove('hidden');
+                loader.classList.add('flex');
+                resultImage.classList.add('opacity-50');
+                errorMessage.classList.add('hidden');
+            } else {
+                loader.classList.add('hidden');
+                loader.classList.remove('flex');
+                resultImage.classList.remove('opacity-50');
+            }
+        };
+
+        const showError = (message) => {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+            resultImage.src = placeholderImage; // Reset to placeholder on error
+            showLoader(false);
+        };
+
+        // Main function to generate image
+        const generateImage = async () => {
+            const prompt = promptInput.value.trim();
+            if (!prompt) {
+                showError('Please enter a prompt to generate an image.');
+                return;
+            }
+
+            showLoader(true);
+            generateButton.disabled = true;
+            generateButton.classList.add('opacity-50', 'cursor-not-allowed');
+
+            try {
+                const payload = { 
+                    instances: [{ prompt: prompt }],
+                    parameters: { "sampleCount": 1 } 
+                };
+                
+                // IMPORTANT: In a real application, the API key should not be hardcoded.
+                // This is left blank as per instructions for the environment to handle it.
+                const apiKey = ""; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error?.message || `HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                    resultImage.src = imageUrl;
+                    errorMessage.classList.add('hidden');
+                } else {
+                    throw new Error('Image data not found in the API response.');
+                }
+
+            } catch (error) {
+                console.error('Error generating image:', error);
+                showError(error.message || 'An unknown error occurred. Please try again.');
+            } finally {
+                showLoader(false);
+                generateButton.disabled = false;
+                generateButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        };
+
+        // Event Listeners
+        generateButton.addEventListener('click', generateImage);
+        promptInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                generateImage();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
