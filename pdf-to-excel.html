@@ -1,1 +1,388 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Excel Converter - Fast & Free Online Tool</title>
+    <meta name="description" content="Convert your PDF files to Excel spreadsheets quickly and easily online. Free PDF to Excel converter tool for efficient data management.">
+    <meta name="keywords" content="PDF to Excel, convert PDF, PDF converter, online PDF tool, free PDF to Excel, PDF data extraction, Excel converter">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); /* Light gradient background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .ad-container {
+            min-height: 100px; /* Placeholder height for ads */
+            background-color: #e2e8f0; /* Light grey background for ad space */
+            border-radius: 0.75rem; /* rounded-xl */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.875rem; /* text-sm */
+            color: #64748b; /* text-slate-500 */
+            border: 1px dashed #94a3b8; /* border-slate-400 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            overflow: hidden; /* Ensure ad content doesn't break layout */
+        }
+        .hero-section {
+            background: linear-gradient(45deg, #6366f1 0%, #8b5cf6 100%); /* Purple-blue gradient */
+            color: white;
+            padding: 4rem 1rem;
+            border-radius: 1.5rem; /* rounded-3xl */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem; /* rounded-3xl */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .file-input-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 3px dashed #cbd5e1; /* border-slate-300 */
+            border-radius: 1rem; /* rounded-2xl */
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .file-input-label:hover {
+            border-color: #6366f1; /* indigo-500 */
+            background-color: #eff6ff; /* blue-50 */
+        }
+        .file-input-label input[type="file"] {
+            display: none;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #6366f1; /* indigo-500 */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        footer {
+            margin-top: auto; /* Pushes footer to the bottom */
+            padding: 2rem 1rem;
+            background-color: #334155; /* slate-700 */
+            color: #cbd5e1; /* slate-300 */
+            text-align: center;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+        }
+    </style>
+    <!-- Google AdSense Script (Place this in the <head> section) -->
+    <!-- Replace 'YOUR_ADSENSE_PUBLISHER_ID' with your actual AdSense Publisher ID -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_PUBLISHER_ID" crossorigin="anonymous"></script> -->
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white shadow-sm py-4">
+        <div class="container flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-indigo-700">PDF<span class="text-purple-600">2</span>Excel</a>
+            <nav>
+                <!-- Add navigation links here if needed for multi-page site -->
+                <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md transition duration-200">About</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md transition duration-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container py-8">
+        <!-- Top Ad Placement -->
+        <div class="ad-container" id="top-ad-placement">
+            <!-- Google AdSense Ad Unit Code will go here -->
+            <!-- Example: -->
+            <!-- <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> -->
+            <p>Advertisement Area (Top Banner)</p>
+        </div>
+
+        <section class="hero-section">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+                Convert PDF to Excel <br class="hidden md:inline">Effortlessly Online
+            </h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90">
+                Transform your PDF documents into editable Excel spreadsheets in seconds. Free, fast, and secure.
+            </p>
+            <button onclick="document.getElementById('pdf-upload').click()" class="btn-primary inline-flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+                <span>Upload PDF Now</span>
+            </button>
+        </section>
+
+        <section class="card text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Your PDF to Excel Converter</h2>
+            <div class="mb-8">
+                <label for="pdf-upload" class="file-input-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 0115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v7" />
+                    </svg>
+                    <p class="text-xl font-semibold text-gray-700">Drag & Drop your PDF here, or <span class="text-indigo-600 underline">Browse</span></p>
+                    <p class="text-sm text-gray-500 mt-2">Max file size: 25MB. Supports .pdf files only.</p>
+                    <input type="file" id="pdf-upload" accept=".pdf" class="hidden">
+                </label>
+                <p id="file-name" class="mt-4 text-gray-600 font-medium"></p>
+            </div>
+
+            <div id="conversion-area" class="mt-8">
+                <button id="convert-btn" class="btn-primary w-full md:w-auto px-10 py-3 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <span id="button-text">Convert to Excel</span>
+                    <div id="spinner" class="spinner hidden ml-2"></div>
+                </button>
+                <div id="download-area" class="mt-6 hidden">
+                    <p class="text-green-600 font-semibold mb-4">Conversion Complete!</p>
+                    <a id="download-link" href="#" download="converted_document.xlsx" class="btn-primary bg-green-600 hover:bg-green-700 inline-flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Download Excel</span>
+                    </a>
+                </div>
+                <p id="error-message" class="text-red-500 mt-4 hidden"></p>
+            </div>
+        </section>
+
+        <!-- Middle Ad Placement -->
+        <div class="ad-container" id="middle-ad-placement">
+            <!-- Google AdSense Ad Unit Code will go here -->
+            <!-- Example: -->
+            <!-- <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> -->
+            <p>Advertisement Area (Middle Banner)</p>
+        </div>
+
+        <section class="card">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">How it Works</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-xl bg-blue-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 0115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v7" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">1. Upload Your PDF</h3>
+                    <p class="text-gray-600">Select the PDF file you want to convert from your device.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-purple-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-purple-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004 16.5v1a3 3 0 003 3h10a3 3 0 003-3v-1.5z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">2. Start Conversion</h3>
+                    <p class="text-gray-600">Click the 'Convert' button and let our tool do the magic.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-green-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-green-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">3. Download Excel</h3>
+                    <p class="text-gray-600">Download your converted Excel file to your device.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Ad Placement -->
+        <div class="ad-container" id="bottom-ad-placement">
+            <!-- Google AdSense Ad Unit Code will go here -->
+            <!-- Example: -->
+            <!-- <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> -->
+            <p>Advertisement Area (Bottom Banner)</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PDF2Excel Converter. All rights reserved.</p>
+            <div class="mt-2">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <span class="text-gray-500">|</span>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get DOM elements
+        const pdfUploadInput = document.getElementById('pdf-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const convertBtn = document.getElementById('convert-btn');
+        const buttonText = document.getElementById('button-text');
+        const spinner = document.getElementById('spinner');
+        const downloadArea = document.getElementById('download-area');
+        const downloadLink = document.getElementById('download-link');
+        const errorMessage = document.getElementById('error-message');
+
+        let selectedFile = null;
+
+        // Handle file selection
+        pdfUploadInput.addEventListener('change', (event) => {
+            selectedFile = event.target.files[0];
+            if (selectedFile) {
+                // Check file type
+                if (selectedFile.type !== 'application/pdf') {
+                    errorMessage.textContent = 'Please select a PDF file.';
+                    errorMessage.classList.remove('hidden');
+                    fileNameDisplay.textContent = '';
+                    convertBtn.disabled = true;
+                    selectedFile = null;
+                    return;
+                }
+
+                // Check file size (25MB limit)
+                const maxFileSize = 25 * 1024 * 1024; // 25 MB in bytes
+                if (selectedFile.size > maxFileSize) {
+                    errorMessage.textContent = 'File size exceeds 25MB limit.';
+                    errorMessage.classList.remove('hidden');
+                    fileNameDisplay.textContent = '';
+                    convertBtn.disabled = true;
+                    selectedFile = null;
+                    return;
+                }
+
+                fileNameDisplay.textContent = `Selected file: ${selectedFile.name}`;
+                convertBtn.disabled = false;
+                downloadArea.classList.add('hidden'); // Hide download area if a new file is selected
+                errorMessage.classList.add('hidden'); // Hide any previous error messages
+            } else {
+                fileNameDisplay.textContent = '';
+                convertBtn.disabled = true;
+                downloadArea.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+            }
+        });
+
+        // Handle conversion button click
+        convertBtn.addEventListener('click', () => {
+            if (!selectedFile) {
+                errorMessage.textContent = 'Please select a PDF file first.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate conversion process
+            buttonText.textContent = 'Converting...';
+            spinner.classList.remove('hidden');
+            convertBtn.disabled = true;
+            downloadArea.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
+            // In a real application, you would send the PDF file to a backend server here
+            // using fetch() or XMLHttpRequest for actual conversion.
+            // For this demo, we simulate a delay and generate a dummy Excel file.
+            setTimeout(() => {
+                // Simulate successful conversion
+                const dummyExcelContent = "Name,Age,City\nJohn Doe,30,New York\nJane Smith,25,London";
+                const blob = new Blob([dummyExcelContent], { type: 'text/csv;charset=utf-8;' }); // Using CSV for simplicity
+                const url = URL.createObjectURL(blob);
+
+                downloadLink.href = url;
+                downloadLink.download = selectedFile.name.replace('.pdf', '.xlsx'); // Suggest .xlsx extension
+
+                buttonText.textContent = 'Convert to Excel';
+                spinner.classList.add('hidden');
+                convertBtn.disabled = false;
+                downloadArea.classList.remove('hidden');
+
+                // Clean up the object URL after a short delay to allow download
+                // URL.revokeObjectURL(url); // Revoke after download is initiated or user navigates away
+            }, 3000); // Simulate 3-second conversion time
+        });
+
+        // Optional: Handle drag and drop for the file input area
+        const fileInputLabel = document.querySelector('.file-input-label');
+
+        fileInputLabel.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            fileInputLabel.classList.add('border-indigo-600', 'bg-indigo-50');
+        });
+
+        fileInputLabel.addEventListener('dragleave', (event) => {
+            event.preventDefault();
+            fileInputLabel.classList.remove('border-indigo-600', 'bg-indigo-50');
+        });
+
+        fileInputLabel.addEventListener('drop', (event) => {
+            event.preventDefault();
+            fileInputLabel.classList.remove('border-indigo-600', 'bg-indigo-50');
+            const files = event.dataTransfer.files;
+            if (files.length > 0) {
+                pdfUploadInput.files = files; // Assign dropped files to the input
+                pdfUploadInput.dispatchEvent(new Event('change')); // Trigger change event manually
+            }
+        });
+
+        // Initial state: disable convert button
+        convertBtn.disabled = true;
+
+        // Load AdSense ads (if the script is present)
+        // This part assumes the AdSense script is correctly placed in the <head>
+        // and the data-ad-client and data-ad-slot are correctly configured in the HTML.
+        // If AdSense script is loaded, it will automatically find and render ads in <ins> tags.
+        // For local testing, these will just be empty divs.
+        // window.onload = function() {
+        //     if (typeof (adsbygoogle) !== 'undefined') {
+        //         (adsbygoogle = window.adsbygoogle || []).push({});
+        //     }
+        // };
+    </script>
+</body>
+</html>
