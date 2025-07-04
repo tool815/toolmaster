@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Protector - Secure Your PDFs Online</title>
+    <meta name="description" content="Protect your PDF files with a password online. Simple, secure, and free PDF protection tool.">
+    <meta name="keywords" content="PDF protector, secure PDF, password protect PDF, encrypt PDF, online PDF tool, free PDF protector">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right top, #6EE7B7, #34D399, #10B981); /* Green gradient */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #3B82F6, #2563EB); /* Blue gradient */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2563EB, #1D4ED8);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .ad-placeholder {
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            border-radius: 0.75rem;
+            min-height: 120px; /* Minimum height for ads */
+        }
+        /* Custom file input styling */
+        .custom-file-input {
+            display: none;
+        }
+        .custom-file-label {
+            display: inline-block;
+            background-color: #F87171; /* Reddish */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .custom-file-label:hover {
+            background-color: #EF4444;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -70px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white bg-opacity-90 shadow-md py-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">PDF Protector</a>
+            <div class="space-x-4">
+                <a href="#" class="text-gray-600 hover:text-gray-900 font-medium">Home</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 font-medium">About</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center py-12 px-4">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Ad Section -->
+            <div class="hidden lg:block ad-placeholder p-4">
+                <!-- Google AdSense Ad Unit 1 (e.g., Sidebar Ad) -->
+                <p>Advertisement Space</p>
+                <div id="ad-unit-1" class="w-full h-full flex items-center justify-center">
+                    <!-- Insert your Google AdSense Ad Unit ID here -->
+                    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script> -->
+                    <!-- <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                         data-ad-slot="YOUR_AD_SLOT_ID_1"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script> -->
+                </div>
+            </div>
+
+            <!-- PDF Protector Card -->
+            <div class="lg:col-span-1 lg:col-start-2 card p-8 w-full">
+                <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-6">Secure Your PDFs</h1>
+                <p class="text-center text-gray-600 mb-8">Add a password to your PDF files for enhanced security.</p>
+
+                <div class="mb-6">
+                    <label for="pdfFile" class="custom-file-label w-full text-center cursor-pointer">
+                        <span id="fileName">Upload PDF File</span>
+                    </label>
+                    <input type="file" id="pdfFile" accept=".pdf" class="custom-file-input">
+                </div>
+
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Enter Password:</label>
+                    <input type="password" id="password" placeholder="Choose a strong password"
+                           class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+                <div class="mb-8">
+                    <label for="confirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" placeholder="Re-enter password"
+                           class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+                <button id="protectBtn" class="btn-primary w-full mb-4">Protect PDF</button>
+
+                <div id="messageBox" class="hidden p-4 rounded-xl text-center text-sm" role="alert"></div>
+
+                <div id="downloadSection" class="hidden text-center mt-6">
+                    <p class="text-gray-700 mb-4 font-semibold">Your PDF has been simulated as protected!</p>
+                    <a id="downloadLink" href="#" class="btn-primary inline-block">Download Protected PDF</a>
+                </div>
+
+                <p class="text-center text-gray-500 text-xs mt-6">
+                    <span class="font-bold text-red-600">Note:</span> This tool simulates PDF protection. For actual encryption, a server-side solution is required. The downloaded file will be your original PDF.
+                </p>
+            </div>
+
+            <!-- Right Ad Section -->
+            <div class="hidden lg:block ad-placeholder p-4">
+                <!-- Google AdSense Ad Unit 2 (e.g., Sidebar Ad) -->
+                <p>Advertisement Space</p>
+                <div id="ad-unit-2" class="w-full h-full flex items-center justify-center">
+                    <!-- Insert your Google AdSense Ad Unit ID here -->
+                    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script> -->
+                    <!-- <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                         data-ad-slot="YOUR_AD_SLOT_ID_2"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Ad Section (for smaller screens or general placement) -->
+        <div class="lg:hidden ad-placeholder p-4 mt-8 w-full max-w-lg mx-auto">
+            <!-- Google AdSense Ad Unit 3 (e.g., Banner Ad) -->
+            <p>Advertisement Space</p>
+            <div id="ad-unit-3" class="w-full h-full flex items-center justify-center">
+                <!-- Insert your Google AdSense Ad Unit ID here -->
+                <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script> -->
+                <!-- <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="YOUR_AD_SLOT_ID_3"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script> -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 PDF Protector. All rights reserved.</p>
+            <div class="mt-2 space-x-4 text-sm">
+                <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pdfFileInput = document.getElementById('pdfFile');
+            const fileNameSpan = document.getElementById('fileName');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const protectBtn = document.getElementById('protectBtn');
+            const messageBox = document.getElementById('messageBox');
+            const downloadSection = document.getElementById('downloadSection');
+            const downloadLink = document.getElementById('downloadLink');
+
+            let uploadedFile = null; // To store the uploaded file object
+
+            // Handle file input change
+            pdfFileInput.addEventListener('change', (event) => {
+                if (event.target.files.length > 0) {
+                    uploadedFile = event.target.files[0];
+                    fileNameSpan.textContent = uploadedFile.name;
+                    showMessage('', 'hidden'); // Clear any previous messages
+                    downloadSection.classList.add('hidden'); // Hide download section
+                } else {
+                    uploadedFile = null;
+                    fileNameSpan.textContent = 'Upload PDF File';
+                }
+            });
+
+            // Function to display messages
+            function showMessage(message, type = 'info') {
+                messageBox.textContent = message;
+                messageBox.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700', 'bg-blue-100', 'text-blue-700');
+                if (type === 'error') {
+                    messageBox.classList.add('bg-red-100', 'text-red-700');
+                } else if (type === 'success') {
+                    messageBox.classList.add('bg-green-100', 'text-green-700');
+                } else { // info or default
+                    messageBox.classList.add('bg-blue-100', 'text-blue-700');
+                }
+            }
+
+            // Handle Protect PDF button click
+            protectBtn.addEventListener('click', () => {
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+
+                // Reset UI elements
+                showMessage('', 'hidden');
+                downloadSection.classList.add('hidden');
+
+                if (!uploadedFile) {
+                    showMessage('Please upload a PDF file first.', 'error');
+                    return;
+                }
+
+                if (!password) {
+                    showMessage('Please enter a password.', 'error');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showMessage('Password must be at least 6 characters long.', 'error');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showMessage('Passwords do not match.', 'error');
+                    return;
+                }
+
+                // Simulate PDF protection process
+                showMessage('Protecting your PDF...', 'info');
+                protectBtn.disabled = true; // Disable button during processing
+
+                setTimeout(() => {
+                    // In a real application, you would send the PDF and password to a server here
+                    // The server would then use a library (e.g., Python's PyPDF2, Node.js's pdf-lib)
+                    // to encrypt the PDF and send it back.
+
+                    // Since this is client-side only, we simulate success and provide the original file for download.
+                    showMessage('PDF protected successfully!', 'success');
+                    downloadSection.classList.remove('hidden');
+
+                    // Create a download link for the original file (simulating the protected one)
+                    const fileURL = URL.createObjectURL(uploadedFile);
+                    downloadLink.href = fileURL;
+                    downloadLink.download = uploadedFile.name.replace('.pdf', '_protected.pdf');
+
+                    protectBtn.disabled = false; // Re-enable button
+                    passwordInput.value = '';
+                    confirmPasswordInput.value = '';
+                    // Optionally clear file input, but keeping it for re-download is fine
+                    // pdfFileInput.value = '';
+                    // fileNameSpan.textContent = 'Upload PDF File';
+                }, 2000); // Simulate a 2-second processing time
+            });
+
+            // Clean up the object URL when the component is unloaded (though for a single-page app, this is less critical)
+            window.addEventListener('beforeunload', () => {
+                if (downloadLink.href && downloadLink.href.startsWith('blob:')) {
+                    URL.revokeObjectURL(downloadLink.href);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
